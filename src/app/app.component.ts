@@ -31,8 +31,12 @@ export class AppComponent {
   register() {
     console.log('register ' + JSON.stringify(this.user));
     //this.af.auth.logout();
-    this.af.auth.createUser(this.user).then(function(auth) {
+    this.af.auth.createUser(this.user)
+    .then(function(auth) {
       console.log('register response ' + JSON.stringify(auth));
+    })
+    .catch(function(error){
+      console.log('register failed ' + JSON.stringify(error));
     })
   }
 }
